@@ -1,0 +1,25 @@
+{
+  "name": "comicapi",
+  "version": "0.0.1",
+  "description": "一個漫畫的 api 文檔",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://a9650615@github.com/BGPSekai/ComicApi.git"
+  },
+  "keywords": [
+    "ㄏ"
+  ],
+  "author": "鳥祐",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BGPSekai/ComicApi/issues"
+  },
+  "homepage": "https://github.com/BGPSekai/ComicApi#readme"
+}
