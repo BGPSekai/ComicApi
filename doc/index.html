@@ -80,32 +80,32 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="#Comic">/comic/~</a></td>
+<td><a href="#Comic">comic</a></td>
 <td>漫畫列表</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#Tag">/tag/~</a></td>
+<td><a href="#Tag">tag</a></td>
 <td>標籤列</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#Type">/type/~</a></td>
+<td><a href="#Type">type</a></td>
 <td>分類</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#Search">/search/~</a></td>
+<td><a href="#Search">search</a></td>
 <td>搜尋</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#Publish">/publish/~</a></td>
+<td><a href="#Publish">publish</a></td>
 <td>發布</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#User">/user/~</a></td>
+<td><a href="#User">user</a></td>
 <td>使用者</td>
 <td></td>
 </tr>
@@ -138,7 +138,49 @@
 </tr>
 </tbody>
 </table>
-<h3><a name="Tag"></a>Tag 標籤列表</h3>
+<h4>JSON Response</h4>
+<blockquote>
+<p><code>/{Page}</code></p></blockquote>
+<pre><code>{
+    {
+        &quot;id&quot;:  id,
+        &quot;title&quot;: title,
+        &quot;tag&quot;: tag[Array],
+        &quot;typeid&quot;: typeid,
+        &quot;last_update&quot;: last_update,
+        &quot;all_chapter&quot;: all_chapter
+    },
+    ...
+}
+</code></pre><blockquote>
+<p><code>/comic/{ComicName}</code></p></blockquote>
+<pre><code>{
+    &quot;info&quot;: {
+        &quot;id&quot;:  id,
+        &quot;title&quot;: title,
+        &quot;tag&quot;: tag[Array],
+        &quot;typeid&quot;: typeid,
+        &quot;last_update&quot;: last_update,
+        &quot;all_chapter&quot;: all_chapter
+    },
+    chapter: [
+        {
+            &quot;article_id&quot;: article_id,
+            &quot;title&quot;: title,
+            &quot;all_page&quot;: page,
+        },
+        ...
+    ]
+}
+</code></pre><blockquote>
+<p><code>/comic/{ComicName}/{ArticleID}/{Page}</code></p></blockquote>
+<pre><code>{
+    &quot;image&quot;: image_url,
+    &quot;next_page&quot;: next_page,
+    &quot;last_page&quot;: last_page,
+    &quot;is_end&quot;: is_end[bool]
+}
+</code></pre><h3><a name="Tag"></a>Tag 標籤列表</h3>
 <table>
 <thead>
 <tr>
@@ -171,12 +213,12 @@
 </thead>
 <tbody>
 <tr>
-<td>/</td>
+<td>/tag/</td>
 <td>Type分類表</td>
 <td></td>
 </tr>
 <tr>
-<td>/{Type}/{Page}</td>
+<td>/tag/{Type}/{Page}</td>
 <td>分類相關漫畫</td>
 <td></td>
 </tr>
@@ -193,12 +235,12 @@
 </thead>
 <tbody>
 <tr>
-<td>/</td>
+<td>/search/search/</td>
 <td>搜尋頁面</td>
 <td></td>
 </tr>
 <tr>
-<td>/{SearchName}/{Page}</td>
+<td>/search/search/{SearchName}/{Page}</td>
 <td>顯示搜尋結果</td>
 <td></td>
 </tr>
@@ -216,12 +258,12 @@
 </thead>
 <tbody>
 <tr>
-<td>/</td>
+<td>/publish/</td>
 <td>發佈</td>
 <td></td>
 </tr>
 <tr>
-<td>/{ComicName}/</td>
+<td>/publish/{ComicName}/</td>
 <td>發佈新章節</td>
 <td></td>
 </tr>
