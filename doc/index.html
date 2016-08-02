@@ -47,8 +47,44 @@
       <ul class="nav nav-list bs-docs-sidenav affix">
 
   <li class="level_2">
-    <a href="#index_主頁面" title="主頁面">
-      <i class="icon-chevron-right"></i>主頁面
+    <a href="#index_首頁" title="首頁">
+      <i class="icon-chevron-right"></i>首頁
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Comic 漫畫列表" title="Comic 漫畫列表">
+      <i class="icon-chevron-right"></i>Comic 漫畫列表
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Tag 標籤列表" title="Tag 標籤列表">
+      <i class="icon-chevron-right"></i>Tag 標籤列表
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Type 分類" title="Type 分類">
+      <i class="icon-chevron-right"></i>Type 分類
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Search 搜尋" title="Search 搜尋">
+      <i class="icon-chevron-right"></i>Search 搜尋
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Publish 發佈漫畫" title="Publish 發佈漫畫">
+      <i class="icon-chevron-right"></i>Publish 發佈漫畫
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_User 帳戶頁面" title="User 帳戶頁面">
+      <i class="icon-chevron-right"></i>User 帳戶頁面
     </a>
   </li>
 
@@ -58,7 +94,7 @@
     <div class="col-md-9">
       <section>
         <h1>ComicApi</h1>
-<p>暫定未命名的漫畫 API 參考文件</p><h2>主頁面</h2>
+<p>暫定未命名的漫畫 API 參考文件</p><h2>首頁</h2>
 <table>
 <thead>
 <tr>
@@ -74,18 +110,50 @@
 <td></td>
 </tr>
 <tr>
-<td>/tag/{TagName}</td>
+<td>/comic/~</td>
+<td>漫畫列表</td>
+<td></td>
+</tr>
+<tr>
+<td>/tag/~</td>
 <td>標籤列</td>
 <td></td>
 </tr>
 <tr>
-<td>/type/{Type}</td>
+<td>/type/~</td>
 <td>分類</td>
 <td></td>
 </tr>
 <tr>
-<td>/comic/</td>
-<td>漫畫列表</td>
+<td>/search/~</td>
+<td>搜尋</td>
+<td></td>
+</tr>
+<tr>
+<td>/publish/~</td>
+<td>發布</td>
+<td></td>
+</tr>
+<tr>
+<td>/user/~</td>
+<td>使用者</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Comic 漫畫列表</h2>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>頁面</th>
+<th>其他 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/{Page}</td>
+<td>所有漫畫</td>
 <td></td>
 </tr>
 <tr>
@@ -93,9 +161,105 @@
 <td>單一漫畫列表</td>
 <td></td>
 </tr>
+<tr>
+<td>/comic/{ComicName}/{ArticleID}/{Page}</td>
+<td>單一章節頁面</td>
+<td></td>
+</tr>
 </tbody>
 </table>
-
+<h2>Tag 標籤列表</h2>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>頁面</th>
+<th>其他 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>Tag 列表</td>
+<td></td>
+</tr>
+<tr>
+<td>/{TagName}/{Page}</td>
+<td>Tag 相關漫畫</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Type 分類</h2>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>頁面</th>
+<th>其他 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>Type分類表</td>
+<td></td>
+</tr>
+<tr>
+<td>/{Type}/{Page}</td>
+<td>分類相關漫畫</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Search 搜尋</h2>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>頁面</th>
+<th>其他 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>搜尋頁面</td>
+<td></td>
+</tr>
+<tr>
+<td>/{SearchName}/{Page}</td>
+<td>顯示搜尋結果</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>主頁提供熱度推薦</code></p><h1>須提供身分驗證</h1>
+<h2>Publish 發佈漫畫</h2>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>頁面</th>
+<th>其他 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>發佈</td>
+<td></td>
+</tr>
+<tr>
+<td>/{ComicName}/</td>
+<td>發佈新章節</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>User 帳戶頁面</h2>
+<pre><code>todo
+</code></pre>
       </section>
   
     </div>
