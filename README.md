@@ -12,6 +12,7 @@ URL | 頁面 | 其他
 [search](#Search) | 搜尋 |
 [publish](#Publish) | 發布 |
 [user](#User) | 使用者 |
+[comment](#Comment) |留言 |
 
 ### <a name="Comic"></a>Comic 漫畫列表
 
@@ -27,28 +28,33 @@ URL | 頁面 | 其他
 
 ```
 {
-    {
-        "id":  id,
-        "title": title,
-        "tag": tag[Array],
-        "typeid": typeid,
-        "last_update": last_update,
-        "all_chapter": all_chapter
-    },
-    ...
+    "status": Status,
+    "comics":[
+        {
+            "id":  id,
+            "comicName": title,
+            "tag": tag[Array],
+            "typeId": typeid,
+            "lastUpdate": last_update,
+            "allChapter": all_chapter,
+            "create_time": create_time
+        },
+        ...
+    ]
 }
 ```
 >`/comic/{ComicName}`
 
 ```
 {
-    "info": {
-        "id":  id,
-        "title": title,
+    "comic": {
+       "id":  id,
+        "comicName": title,
         "tag": tag[Array],
-        "typeid": typeid,
-        "last_update": last_update,
-        "all_chapter": all_chapter
+        "typeId": typeid,
+        "lastUpdate": last_update,
+        "allChapter": all_chapter,
+        "create_time": create_time
     },
     chapter: [
         {
@@ -74,9 +80,22 @@ URL | 頁面 | 其他
 ### <a name="Tag"></a>Tag 標籤列表
 URL | 頁面 | 其他 
 --- | --- | --- |
-/ | Tag 列表 | 
-/{TagName}/{Page} | Tag 相關漫畫 | 
+/tag | Tag 列表 | 
+/tag/{TagName}/{Page} | Tag 相關漫畫 | 
 
+>`/tag`
+
+```
+{
+    "tags": [
+        {
+            "tagId": tag_id,
+            "tagName": tag_name,
+        },
+        ...
+    ]
+}
+```
 
 ### <a name="Type"></a>Type 分類
 URL | 頁面 | 其他 
@@ -102,6 +121,11 @@ URL | 頁面 | 其他
 /publish/{ComicName}/ | 發佈新章節 |
 
 ### <a name="User"></a>User 帳戶頁面
+```
+todo
+```
+
+### <a name="Comment"></a>Comment 留言
 ```
 todo
 ```

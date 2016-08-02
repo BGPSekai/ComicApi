@@ -109,6 +109,11 @@
 <td>使用者</td>
 <td></td>
 </tr>
+<tr>
+<td><a href="#Comment">comment</a></td>
+<td>留言</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <h3><a name="Comic"></a>Comic 漫畫列表</h3>
@@ -142,15 +147,17 @@
 <blockquote>
 <p><code>/{Page}</code></p></blockquote>
 <pre><code>{
-    {
-        &quot;id&quot;:  id,
-        &quot;title&quot;: title,
-        &quot;tag&quot;: tag[Array],
-        &quot;typeid&quot;: typeid,
-        &quot;last_update&quot;: last_update,
-        &quot;all_chapter&quot;: all_chapter
-    },
-    ...
+    Comics:[
+        {
+            &quot;id&quot;:  id,
+            &quot;title&quot;: title,
+            &quot;tag&quot;: tag[Array],
+            &quot;typeid&quot;: typeid,
+            &quot;last_update&quot;: last_update,
+            &quot;all_chapter&quot;: all_chapter
+        },
+        ...
+    ]
 }
 </code></pre><blockquote>
 <p><code>/comic/{ComicName}</code></p></blockquote>
@@ -270,6 +277,8 @@
 </tbody>
 </table>
 <h3><a name="User"></a>User 帳戶頁面</h3>
+<pre><code>todo
+</code></pre><h3><a name="Comment"></a>Comment 留言</h3>
 <pre><code>todo
 </code></pre>
       </section>
