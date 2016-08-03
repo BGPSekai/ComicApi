@@ -202,7 +202,7 @@ String | name | ✔
 ```
 {
     "status": "success",
-    "uid": uid
+    "id": id
 }
 ```
 
