@@ -24,7 +24,7 @@ URL | 頁面 | 其他
 {
     "token": token
 }
-``` 
+```
 
 ### <a name="Comic"></a>Comic 漫畫列表
 
@@ -46,6 +46,7 @@ URL | 頁面 | 其他
             "id":  id,
             "comicName": comic_name,
             "comicImg": comic_img,
+            "comicSummary": comic_summary,
             "tag": tag[Array],
             "typeId": type_id,
             "createUser": create_user,
@@ -66,6 +67,7 @@ URL | 頁面 | 其他
        "id":  id,
         "comicName": comic_name,
         "comicImg": comic_img,
+        "comicSummary": comic_summary,
         "tag": tag[Array],
         "typeId": type_id,
         "createUser": create_user,
@@ -128,6 +130,7 @@ URL | 頁面 | 其他
         {
             "comicName": comic_name,
             "comicImg": comic_img,
+            "comicSummary": comic_summary,
             "tag": tag[Array],
             "typeId": type_id,
             "createUser": create_user,
