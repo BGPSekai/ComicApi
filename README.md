@@ -194,7 +194,7 @@ URL | 頁面 | 其他
 --- | --- | --- |
 String ︎|︎ email | ✔ 
 String | password | ✔
-String | confirmed_password | ✔
+String | password_confirmation | ✔
 String | name | ✔ 
 
 >success
