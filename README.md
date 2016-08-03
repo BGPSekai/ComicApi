@@ -36,6 +36,7 @@ URL | 頁面 | 其他
             "comicImg": comic_img,
             "tag": tag[Array],
             "typeId": type_id,
+            "createUser": create_user,
             "lastUpdate": last_update,
             "allChapter": all_chapter,
             "create_time": create_time
@@ -48,12 +49,14 @@ URL | 頁面 | 其他
 
 ```
 {
+    "status": Status,
     "comic": {
        "id":  id,
         "comicName": comic_name,
         "comicImg": comic_img,
         "tag": tag[Array],
         "typeId": type_id,
+        "createUser": create_user,
         "lastUpdate": last_update,
         "allChapter": all_chapter,
         "create_time": create_time
@@ -72,6 +75,7 @@ URL | 頁面 | 其他
 
 ```
 {
+    "status": Status,
     "image": image_url,
     "next_page": next_page,
     "last_page": last_page,
@@ -89,6 +93,7 @@ URL | 頁面 | 其他
 
 ```
 {
+    "status": Status,
     "tags": [
         {
             "tagId": tag_id,
@@ -102,6 +107,7 @@ URL | 頁面 | 其他
 
 ```
 {
+    "status": Status,
     "tag": {
             "tagId": tag_id,
             "tagName": tag_name,
@@ -112,6 +118,7 @@ URL | 頁面 | 其他
             "comicImg": comic_img,
             "tag": tag[Array],
             "typeId": type_id,
+            "createUser": create_user,
             "lastUpdate": last_update,
             "allChapter": all_chapter,
             "create_time": create_time
@@ -140,6 +147,7 @@ URL | 頁面 | 其他
 
 ```
 {
+    "status": Status,
     comics: [
         {
             "comicName": comic_name,
@@ -157,7 +165,7 @@ URL | 頁面 | 其他
 > `/search/{SearchName}/{Page}`
 
 ```
-    同主頁 (每頁15筆)
+    同主頁資料 (每頁15筆)
 ```
 
 ## 須提供帳號驗證
@@ -169,8 +177,41 @@ URL | 頁面 | 其他
 /publish/{ComicName}/ | 發佈新章節 |
 
 ### <a name="User"></a>User 帳戶頁面
+URL | 頁面 | 其他 
+--- | --- | --- |
+/user  | 帳戶頁面 | 
+/user/psword/reset | 修改密碼 | PUT
+/user/avatar/edit | 修改頭貼 | POST
+
+>`/user`
+
 ```
-todo
+{
+    "status": Status,
+    "profile": {
+        "uid": uid,
+        "name": user_name,
+        "acountName": user_account,
+        "avatar": user_avatar,
+        "level": user_level
+    }
+}
+```
+>`/user/psword/reset`
+
+```
+{
+    "status": Status,
+    "msg": msg
+}
+```
+>`/user/avatar/edit`
+
+```
+{
+    "status": Status,
+    "msg": msg
+}
 ```
 
 ### <a name="Comment"></a>Comment 留言

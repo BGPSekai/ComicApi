@@ -53,8 +53,8 @@
   </li>
 
   <li class="level_2">
-    <a href="#index_須提供身分驗證" title="須提供身分驗證">
-      <i class="icon-chevron-right"></i>須提供身分驗證
+    <a href="#index_須提供帳號驗證" title="須提供帳號驗證">
+      <i class="icon-chevron-right"></i>須提供帳號驗證
     </a>
   </li>
 
@@ -151,9 +151,10 @@
     &quot;comics&quot;:[
         {
             &quot;id&quot;:  id,
-            &quot;comicName&quot;: title,
+            &quot;comicName&quot;: comic_name,
+            &quot;comicImg&quot;: comic_img,
             &quot;tag&quot;: tag[Array],
-            &quot;typeId&quot;: typeid,
+            &quot;typeId&quot;: type_id,
             &quot;lastUpdate&quot;: last_update,
             &quot;allChapter&quot;: all_chapter,
             &quot;create_time&quot;: create_time
@@ -166,9 +167,10 @@
 <pre><code>{
     &quot;comic&quot;: {
        &quot;id&quot;:  id,
-        &quot;comicName&quot;: title,
+        &quot;comicName&quot;: comic_name,
+        &quot;comicImg&quot;: comic_img,
         &quot;tag&quot;: tag[Array],
-        &quot;typeId&quot;: typeid,
+        &quot;typeId&quot;: type_id,
         &quot;lastUpdate&quot;: last_update,
         &quot;allChapter&quot;: all_chapter,
         &quot;create_time&quot;: create_time
@@ -232,10 +234,10 @@
     },
     &quot;comics&quot;:[
         {
-            &quot;id&quot;:  id,
-            &quot;comicName&quot;: title,
+            &quot;comicName&quot;: comic_name,
+            &quot;comicImg&quot;: comic_img,
             &quot;tag&quot;: tag[Array],
-            &quot;typeId&quot;: typeid,
+            &quot;typeId&quot;: type_id,
             &quot;lastUpdate&quot;: last_update,
             &quot;allChapter&quot;: all_chapter,
             &quot;create_time&quot;: create_time
@@ -276,18 +278,37 @@
 </thead>
 <tbody>
 <tr>
-<td>/search/search/</td>
+<td>/search</td>
 <td>搜尋頁面</td>
 <td></td>
 </tr>
 <tr>
-<td>/search/search/{SearchName}/{Page}</td>
+<td>/search/{SearchName}/{Page}</td>
 <td>顯示搜尋結果</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p><code>主頁提供熱度推薦</code></p><h2>須提供身分驗證</h2>
+<blockquote>
+<p><code>/search</code></p></blockquote>
+<p><code>主頁提供熱度推薦，共10筆</code></p><pre><code>{
+    comics: [
+        {
+            &quot;comicName&quot;: comic_name,
+            &quot;comicImg&quot;: comic_img,
+            &quot;tag&quot;: tag[Array],
+            &quot;typeId&quot;: type_id,
+            &quot;lastUpdate&quot;: last_update,
+            &quot;allChapter&quot;: all_chapter,
+            &quot;create_time&quot;: create_time
+        },
+        ...(9)
+    ]
+}
+</code></pre><blockquote>
+<p><code>/search/{SearchName}/{Page}</code></p></blockquote>
+<pre><code>    同主頁 (每頁15筆)
+</code></pre><h2>須提供帳號驗證</h2>
 <h3><a name="Publish"></a>Publish 發佈漫畫</h3>
 <table>
 <thead>
@@ -311,6 +332,20 @@
 </tbody>
 </table>
 <h3><a name="User"></a>User 帳戶頁面</h3>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>頁面</th>
+<th>其他 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
 <pre><code>todo
 </code></pre><h3><a name="Comment"></a>Comment 留言</h3>
 <pre><code>todo
