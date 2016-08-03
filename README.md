@@ -183,7 +183,7 @@ URL | 頁面 | 其他
 ```
     同主頁資料 (每頁15筆)
 ```
-### <a name="Publish"></a>Service 服務
+### <a name="Service"></a>Service 服務
 URL | 頁面 | 其他 
 --- | --- | --- |
 /service/register | 添加帳號 | POST
