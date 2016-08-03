@@ -6,6 +6,7 @@
 URL | 頁面 | 其他 
 --- | --- | --- |
 / | 首頁 | 
+[auth](#Auth) | JWT 認證 |
 [comic](#Comic) | 漫畫列表 | 
 [tag](#Tag) | 標籤列 | 
 [type](#Type) | 分類 |
@@ -13,6 +14,17 @@ URL | 頁面 | 其他
 [publish](#Publish) | 發布 |
 [user](#User) | 使用者 |
 [comment](#Comment) |留言 |
+
+### <a name="Auth"></a> JWT 認證
+URL | 頁面 | 其他 
+--- | --- | --- |
+/auth | JWT |
+
+```
+{
+    "token": token
+}
+``` 
 
 ### <a name="Comic"></a>Comic 漫畫列表
 
@@ -180,8 +192,33 @@ URL | 頁面 | 其他
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
-comicName | | ✔ ︎
+String | comicName | ✔ ︎
+File | comicCoverImg | ✔
+String | comicSummary | ✔ (最少 30 字)
 ```
+{
+    "status": Status
+    "info": {
+        "uid": uid,
+        "comicName": comic_name
+    }
+}
+```
+
+>`/publish/{ComicName}/`
+
+類型 | 參數名稱 | 必須 
+--- | --- | --- |
+Integer | chapterNo | 
+String ︎|︎ ︎︎chapterName | ✔ 
+String | authorComment |
+Files |  comicImgs | ✔ Muti
+
+```
+{
+    "status": Status,
+    "msg": msg
+}
 ```
 
 ### <a name="User"></a>User 帳號頁面
@@ -225,3 +262,7 @@ URL | 頁面 | 其他
 ### <a name="Comment"></a>Comment 留言
 URL | 頁面 | 其他 
 --- | --- | --- |
+
+```
+ TODO
+```

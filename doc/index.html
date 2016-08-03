@@ -351,14 +351,63 @@
 </thead>
 <tbody>
 <tr>
+<td>String</td>
 <td>comicName</td>
-<td></td>
 <td>✔ ︎</td>
+</tr>
+<tr>
+<td>File</td>
+<td>comicCoverImg</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>String</td>
+<td>comicSummary</td>
+<td>✔ (最少 30 字)</td>
 </tr>
 </tbody>
 </table>
-<pre><code>
-</code></pre><h3><a name="User"></a>User 帳號頁面</h3>
+<pre><code>{
+    &quot;status&quot;: Status
+    &quot;info&quot;: {
+        &quot;uid&quot;: uid,
+        &quot;comicName&quot;: comic_name
+    }
+}
+</code></pre><blockquote>
+<p><code>/publish/{ComicName}/</code></p></blockquote>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>參數名稱</th>
+<th>必須 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer</td>
+<td>chapterNo</td>
+<td></td>
+</tr>
+<tr>
+<td>String ︎</td>
+<td>︎ ︎︎chapterName</td>
+<td>✔ </td>
+</tr>
+<tr>
+<td>String</td>
+<td>authorComment</td>
+<td></td>
+</tr>
+<tr>
+<td>Files</td>
+<td>comicImgs</td>
+<td>✔ Muti</td>
+</tr>
+</tbody>
+</table>
+<h3><a name="User"></a>User 帳號頁面</h3>
 <table>
 <thead>
 <tr>
@@ -424,7 +473,8 @@
 </tr>
 </tbody>
 </table>
-
+<pre><code> TODO
+</code></pre>
       </section>
   
     </div>
