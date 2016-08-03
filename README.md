@@ -197,11 +197,21 @@ String | password | ✔
 String | confirmed_password | ✔
 String | name | ✔ 
 
+>success
+
 ```
 {
-    "status": Status,
-    "msg": msg,
+    "status": "success",
     "uid": uid
+}
+```
+
+>error
+
+```
+{
+    "status": "error",
+    "msg": msg
 }
 ```
 
