@@ -147,14 +147,16 @@
 <blockquote>
 <p><code>/{Page}</code></p></blockquote>
 <pre><code>{
-    Comics:[
+    &quot;status&quot;: Status,
+    &quot;comics&quot;:[
         {
             &quot;id&quot;:  id,
-            &quot;title&quot;: title,
+            &quot;comicName&quot;: title,
             &quot;tag&quot;: tag[Array],
-            &quot;typeid&quot;: typeid,
-            &quot;last_update&quot;: last_update,
-            &quot;all_chapter&quot;: all_chapter
+            &quot;typeId&quot;: typeid,
+            &quot;lastUpdate&quot;: last_update,
+            &quot;allChapter&quot;: all_chapter,
+            &quot;create_time&quot;: create_time
         },
         ...
     ]
@@ -162,13 +164,14 @@
 </code></pre><blockquote>
 <p><code>/comic/{ComicName}</code></p></blockquote>
 <pre><code>{
-    &quot;info&quot;: {
-        &quot;id&quot;:  id,
-        &quot;title&quot;: title,
+    &quot;comic&quot;: {
+       &quot;id&quot;:  id,
+        &quot;comicName&quot;: title,
         &quot;tag&quot;: tag[Array],
-        &quot;typeid&quot;: typeid,
-        &quot;last_update&quot;: last_update,
-        &quot;all_chapter&quot;: all_chapter
+        &quot;typeId&quot;: typeid,
+        &quot;lastUpdate&quot;: last_update,
+        &quot;allChapter&quot;: all_chapter,
+        &quot;create_time&quot;: create_time
     },
     chapter: [
         {
@@ -198,18 +201,49 @@
 </thead>
 <tbody>
 <tr>
-<td>/</td>
+<td>/tag</td>
 <td>Tag 列表</td>
 <td></td>
 </tr>
 <tr>
-<td>/{TagName}/{Page}</td>
+<td>/tag/{TagName}/{Page}</td>
 <td>Tag 相關漫畫</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h3><a name="Type"></a>Type 分類</h3>
+<blockquote>
+<p><code>/tag</code></p></blockquote>
+<pre><code>{
+    &quot;tags&quot;: [
+        {
+            &quot;tagId&quot;: tag_id,
+            &quot;tagName&quot;: tag_name,
+        },
+        ...
+    ]
+}
+</code></pre><blockquote>
+<p><code>/tag/{TagName}/{Page}</code></p></blockquote>
+<pre><code>{
+    &quot;tag&quot;: {
+            &quot;tagId&quot;: tag_id,
+            &quot;tagName&quot;: tag_name,
+    },
+    &quot;comics&quot;:[
+        {
+            &quot;id&quot;:  id,
+            &quot;comicName&quot;: title,
+            &quot;tag&quot;: tag[Array],
+            &quot;typeId&quot;: typeid,
+            &quot;lastUpdate&quot;: last_update,
+            &quot;allChapter&quot;: all_chapter,
+            &quot;create_time&quot;: create_time
+        },
+        ...
+    ]
+}
+</code></pre><h3><a name="Type"></a>Type 分類</h3>
 <table>
 <thead>
 <tr>

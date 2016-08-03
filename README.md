@@ -32,9 +32,10 @@ URL | 頁面 | 其他
     "comics":[
         {
             "id":  id,
-            "comicName": title,
+            "comicName": comic_name,
+            "comicImg": comic_img,
             "tag": tag[Array],
-            "typeId": typeid,
+            "typeId": type_id,
             "lastUpdate": last_update,
             "allChapter": all_chapter,
             "create_time": create_time
@@ -49,9 +50,10 @@ URL | 頁面 | 其他
 {
     "comic": {
        "id":  id,
-        "comicName": title,
+        "comicName": comic_name,
+        "comicImg": comic_img,
         "tag": tag[Array],
-        "typeId": typeid,
+        "typeId": type_id,
         "lastUpdate": last_update,
         "allChapter": all_chapter,
         "create_time": create_time
@@ -96,6 +98,28 @@ URL | 頁面 | 其他
     ]
 }
 ```
+>`/tag/{TagName}/{Page}`
+
+```
+{
+    "tag": {
+            "tagId": tag_id,
+            "tagName": tag_name,
+    },
+    "comics":[
+        {
+            "comicName": comic_name,
+            "comicImg": comic_img,
+            "tag": tag[Array],
+            "typeId": type_id,
+            "lastUpdate": last_update,
+            "allChapter": all_chapter,
+            "create_time": create_time
+        },
+        ...
+    ]
+}
+```
 
 ### <a name="Type"></a>Type 分類
 URL | 頁面 | 其他 
@@ -107,12 +131,36 @@ URL | 頁面 | 其他
 ### <a name="Search"></a>Search 搜尋
 URL | 頁面 | 其他 
 --- | --- | --- |
-/search/search/ | 搜尋頁面 | 
-/search/search/{SearchName}/{Page} | 顯示搜尋結果 |
+/search | 搜尋頁面 | 
+/search/{SearchName}/{Page} | 顯示搜尋結果 |
 
-``主頁提供熱度推薦``
+> `/search`
 
-## 須提供身分驗證
+`主頁提供熱度推薦，共10筆`
+
+```
+{
+    comics: [
+        {
+            "comicName": comic_name,
+            "comicImg": comic_img,
+            "tag": tag[Array],
+            "typeId": type_id,
+            "lastUpdate": last_update,
+            "allChapter": all_chapter,
+            "create_time": create_time
+        },
+        ...(9)
+    ]
+}
+```
+> `/search/{SearchName}/{Page}`
+
+```
+    同主頁 (每頁15筆)
+```
+
+## 須提供帳號驗證
 
 ### <a name="Publish"></a>Publish 發佈漫畫
 URL | 頁面 | 其他 
