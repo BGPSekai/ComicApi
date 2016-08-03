@@ -12,6 +12,7 @@ URL | 頁面 | 其他
 [type](#Type) | 分類 |
 [search](#Search) | 搜尋 |
 [publish](#Publish) | 發布 |
+[service](#Service) | 服務 |
 [user](#User) | 使用者 |
 [comment](#Comment) |留言 |
 
@@ -182,6 +183,27 @@ URL | 頁面 | 其他
 ```
     同主頁資料 (每頁15筆)
 ```
+### <a name="Publish"></a>Service 服務
+URL | 頁面 | 其他 
+--- | --- | --- |
+/service/register | 添加帳號 | POST
+
+>`/user/register`
+
+類型 | 參數名稱 | 必須 
+--- | --- | --- |
+String ︎|︎ email | ✔ 
+String | password | ✔
+String | confirmed_password | ✔
+String | userName | ✔ 
+
+```
+{
+    "status": Status,
+    "msg": msg,
+    "uid": uid
+}
+```
 
 ## 須提供帳號驗證
 
@@ -245,6 +267,7 @@ URL | 頁面 | 其他
     }
 }
 ```
+
 >`/user/psword/reset`
 
 ```

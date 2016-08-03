@@ -80,6 +80,11 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="#Auth">auth</a></td>
+<td>JWT 認證</td>
+<td></td>
+</tr>
+<tr>
 <td><a href="#Comic">comic</a></td>
 <td>漫畫列表</td>
 <td></td>
@@ -116,7 +121,27 @@
 </tr>
 </tbody>
 </table>
-<h3><a name="Comic"></a>Comic 漫畫列表</h3>
+<h3><a name="Auth"></a> JWT 認證</h3>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>頁面</th>
+<th>其他 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/auth</td>
+<td>JWT</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>{
+    &quot;token&quot;: token
+}
+</code></pre><h3><a name="Comic"></a>Comic 漫畫列表</h3>
 <table>
 <thead>
 <tr>
@@ -153,6 +178,7 @@
             &quot;id&quot;:  id,
             &quot;comicName&quot;: comic_name,
             &quot;comicImg&quot;: comic_img,
+            &quot;comicSummary&quot;: comic_summary,
             &quot;tag&quot;: tag[Array],
             &quot;typeId&quot;: type_id,
             &quot;createUser&quot;: create_user,
@@ -171,6 +197,7 @@
        &quot;id&quot;:  id,
         &quot;comicName&quot;: comic_name,
         &quot;comicImg&quot;: comic_img,
+        &quot;comicSummary&quot;: comic_summary,
         &quot;tag&quot;: tag[Array],
         &quot;typeId&quot;: type_id,
         &quot;createUser&quot;: create_user,
@@ -242,6 +269,7 @@
         {
             &quot;comicName&quot;: comic_name,
             &quot;comicImg&quot;: comic_img,
+            &quot;comicSummary&quot;: comic_summary,
             &quot;tag&quot;: tag[Array],
             &quot;typeId&quot;: type_id,
             &quot;createUser&quot;: create_user,
@@ -407,7 +435,11 @@
 </tr>
 </tbody>
 </table>
-<h3><a name="User"></a>User 帳號頁面</h3>
+<pre><code>{
+    &quot;status&quot;: Status,
+    &quot;msg&quot;: msg
+}
+</code></pre><h3><a name="User"></a>User 帳號頁面</h3>
 <table>
 <thead>
 <tr>
