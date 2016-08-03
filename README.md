@@ -173,14 +173,22 @@ URL | 頁面 | 其他
 ### <a name="Publish"></a>Publish 發佈漫畫
 URL | 頁面 | 其他 
 --- | --- | --- |
-/publish/ | 發佈 |
-/publish/{ComicName}/ | 發佈新章節 |
+/publish/ | 發佈 | POST
+/publish/{ComicName}/ | 發佈新章節 | POST
 
-### <a name="User"></a>User 帳戶頁面
+>`/publish`
+
+類型 | 參數名稱 | 必須 
+--- | --- | --- |
+comicName | | ✔ ︎
+```
+```
+
+### <a name="User"></a>User 帳號頁面
 URL | 頁面 | 其他 
 --- | --- | --- |
-/user  | 帳戶頁面 | 
-/user/psword/reset | 修改密碼 | PUT
+/user  | 帳號頁面 | 
+/user/password/reset | 修改密碼 | PUT
 /user/avatar/edit | 修改頭貼 | POST
 
 >`/user`
@@ -215,6 +223,5 @@ URL | 頁面 | 其他
 ```
 
 ### <a name="Comment"></a>Comment 留言
-```
-todo
-```
+URL | 頁面 | 其他 
+--- | --- | --- |
