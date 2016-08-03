@@ -188,14 +188,14 @@ URL | 頁面 | 其他
 --- | --- | --- |
 /service/register | 添加帳號 | POST
 
->`/user/register`
+>`/service/register`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
 String ︎|︎ email | ✔ 
 String | password | ✔
 String | confirmed_password | ✔
-String | userName | ✔ 
+String | name | ✔ 
 
 ```
 {
