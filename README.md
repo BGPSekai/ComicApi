@@ -288,7 +288,7 @@ String | comicSummary | ✔ (最少 30 字)
     "status": Status
     "info": {
         "id": id,
-        "comicName": comic_name
+        "coverImgUrl": cover_img_url
     }
 }
 ```
@@ -297,9 +297,10 @@ String | comicSummary | ✔ (最少 30 字)
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
-Integer | chapterNo | 
+Integer | chapter | 
 String ︎|︎ ︎︎chapterName | ✔ 
 String | authorComment |
+File |  chapterCoverImg | ✔
 Files |  comicImgs | ✔ Muti
 
 ```
