@@ -187,6 +187,8 @@ URL | 頁面 | 其他
 URL | 頁面 | 其他 
 --- | --- | --- |
 /service/register | 添加帳號 | POST
+/service/login | 登入帳號 | POST
+/service/forgot_password | 忘記密碼 | POST
 
 >`/service/register`
 
@@ -202,7 +204,7 @@ String | name | ✔
 ```
 {
     "status": "success",
-    "id": id
+    "msg": msg
 }
 ```
 
@@ -214,6 +216,59 @@ String | name | ✔
     "msg": msg
 }
 ```
+
+
+>`/service/login`
+
+類型 | 參數名稱 | 必須 
+--- | --- | --- |
+String ︎|︎ email | ✔ 
+String | password | ✔
+
+>success
+
+```
+{
+    "status": "success",
+    "token": token
+}
+```
+
+>error
+
+```
+{
+    "status": "error",
+    "msg": msg
+}
+```
+
+
+>`/service/forgot_password`
+
+類型 | 參數名稱 | 必須 
+--- | --- | --- |
+String ︎|︎ email | ✔ 
+String | password | ✔
+
+>success
+
+```
+{
+    "status": "success",
+    "token": token
+}
+```
+
+>error
+
+```
+{
+    "status": "error",
+    "msg": msg
+}
+```
+
 
 ## 須提供帳號驗證
 
