@@ -21,6 +21,13 @@ URL | 頁面 | 其他
 --- | --- | --- |
 /auth | JWT | POST
 
+>`/auth`
+
+類型 | 參數名稱 | 必須
+--- | --- | --- |
+String | email | ✔
+String | password | ✔
+
 >success
 
 ```
@@ -342,9 +349,14 @@ URL | 頁面 | 其他
 ```
 
 ### <a name="Comment"></a>Comment 留言
+`可以考慮使用臉留言板 (有好有壞) `
 URL | 頁面 | 其他 
 --- | --- | --- |
-/comment/{}/{} | |
+/comment/{ComicId}/ | 顯示某漫  |
+/comment/{ComicId}/{Chapter} | 顯示某漫所有留言  |
+/comment/{ComicId}/{Chapter}/add | 添加某漫章節留言 |
+/comment/{ComicId}/{Chapter}/edit | 修改某漫留言  |
+/comment/{ComicId}/{Chapter}/delete |  |
 
 ```
  TODO
