@@ -110,6 +110,11 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="#Service">service</a></td>
+<td>服務</td>
+<td></td>
+</tr>
+<tr>
 <td><a href="#User">user</a></td>
 <td>使用者</td>
 <td></td>
@@ -134,12 +139,45 @@
 <tr>
 <td>/auth</td>
 <td>JWT</td>
-<td></td>
+<td>POST</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p><code>/auth</code></p></blockquote>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>參數名稱</th>
+<th>必須</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>email</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>String</td>
+<td>password</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>success</p></blockquote>
 <pre><code>{
-    &quot;token&quot;: token
+    &quot;token&quot;: *token*
+}
+</code></pre><blockquote>
+<p>error</p></blockquote>
+<pre><code>{
+    &quot;error&quot;: &quot;invalid_credentials&quot;
+}
+</code></pre><p>-----or-----</p><pre><code>{
+    &quot;error&quot;: &quot;could_not_create_token&quot;
 }
 </code></pre><h3><a name="Comic"></a>Comic 漫畫列表</h3>
 <table>
@@ -344,6 +382,108 @@
 </code></pre><blockquote>
 <p><code>/search/{SearchName}/{Page}</code></p></blockquote>
 <pre><code>    同主頁資料 (每頁15筆)
+</code></pre><h3><a name="Service"></a>Service 服務</h3>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>頁面</th>
+<th>其他 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/service/register</td>
+<td>註冊帳號</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>/service/forgot_password</td>
+<td>忘記密碼</td>
+<td>POST</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>/service/register</code></p></blockquote>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>參數名稱</th>
+<th>必須 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>email</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>String</td>
+<td>password</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>String</td>
+<td>password_confirmation</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>String</td>
+<td>name</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>success</p></blockquote>
+<pre><code>{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;msg&quot;: &quot;Register successful.&quot;
+}
+</code></pre><blockquote>
+<p>error</p></blockquote>
+<pre><code>{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;msg&quot;: *msg[Array]*
+}
+</code></pre><blockquote>
+<p><code>/service/forgot_password</code></p></blockquote>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>參數名稱</th>
+<th>必須 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String ︎</td>
+<td>︎ email</td>
+<td>✔ </td>
+</tr>
+<tr>
+<td>String</td>
+<td>password</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>success</p></blockquote>
+<pre><code>{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;token&quot;: token
+}
+</code></pre><blockquote>
+<p>error</p></blockquote>
+<pre><code>{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;msg&quot;: msg
+}
 </code></pre><h2>須提供帳號驗證</h2>
 <h3><a name="Publish"></a>Publish 發佈漫畫</h3>
 <table>
@@ -398,7 +538,7 @@
 <pre><code>{
     &quot;status&quot;: Status
     &quot;info&quot;: {
-        &quot;uid&quot;: uid,
+        &quot;id&quot;: id,
         &quot;comicName&quot;: comic_name
     }
 }
@@ -491,21 +631,16 @@
     &quot;msg&quot;: msg
 }
 </code></pre><h3><a name="Comment"></a>Comment 留言</h3>
-<table>
-<thead>
-<tr>
-<th>URL</th>
-<th>頁面</th>
-<th>其他 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<pre><code> TODO
+<p><code>可以考慮使用臉留言板 (有好有壞)</code><br />URL | 頁面 | 其他<br />--- | --- | --- |<br />/comment/{ComicId} | 顯示某漫所有留言 |<br />/comment/{ComicId}/{Chapter} | 顯示某漫章節留言  |<br />/comment/{ComicId}/{Chapter}/add | 添加某漫章節留言 |<br />/comment/{CommentId}/edit | 修改某漫留言  |<br />/comment/{CommentId}/delete | 刪除某漫留言 |</p><blockquote>
+<p><code>/comment/{ComicId}</code></p></blockquote>
+<pre><code>{
+    comics: [
+        &quot;userName&quot;: user_name,
+        &quot;userId&quot;: user_id,
+
+    ]
+}
+</code></pre><pre><code> TODO
 </code></pre>
       </section>
   

@@ -287,7 +287,7 @@ String | comicSummary | ✔ (最少 30 字)
 {
     "status": Status
     "info": {
-        "uid": uid,
+        "id": id,
         "comicName": comic_name
     }
 }
@@ -352,11 +352,24 @@ URL | 頁面 | 其他
 `可以考慮使用臉留言板 (有好有壞) `
 URL | 頁面 | 其他 
 --- | --- | --- |
-/comment/{ComicId}/ | 顯示某漫  |
-/comment/{ComicId}/{Chapter} | 顯示某漫所有留言  |
+/comment/{ComicId} | 顯示某漫所有留言 |
+/comment/{ComicId}/{Chapter} | 顯示某漫章節留言  |
 /comment/{ComicId}/{Chapter}/add | 添加某漫章節留言 |
-/comment/{ComicId}/{Chapter}/edit | 修改某漫留言  |
-/comment/{ComicId}/{Chapter}/delete |  |
+/comment/{CommentId}/edit | 修改某漫留言  |
+/comment/{CommentId}/delete | 刪除某漫留言 |
+
+>`/comment/{ComicId}`
+
+```
+{
+    comics: [
+        "userName": user_name,
+        "userId": user_id,
+
+    ]
+}
+```
+
 
 ```
  TODO
