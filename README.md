@@ -19,13 +19,32 @@ URL | 頁面 | 其他
 ### <a name="Auth"></a> JWT 認證
 URL | 頁面 | 其他 
 --- | --- | --- |
-/auth | JWT |
+/auth | JWT | POST
+
+>success
 
 ```
 {
-    "token": token
+    "token": *token*
 }
 ```
+
+>error
+
+```
+{
+    "error": "invalid_credentials"
+}
+```
+
+-----or-----
+
+```
+{
+    "error": "could_not_create_token"
+}
+```
+
 
 ### <a name="Comic"></a>Comic 漫畫列表
 
@@ -186,25 +205,24 @@ URL | 頁面 | 其他
 ### <a name="Service"></a>Service 服務
 URL | 頁面 | 其他 
 --- | --- | --- |
-/service/register | 添加帳號 | POST
-/service/login | 登入帳號 | POST
+/service/register | 註冊帳號 | POST
 /service/forgot_password | 忘記密碼 | POST
 
 >`/service/register`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
-String ︎|︎ email | ✔ 
+String | email | ✔
 String | password | ✔
 String | password_confirmation | ✔
-String | name | ✔ 
+String | name | ✔
 
 >success
 
 ```
 {
     "status": "success",
-    "msg": msg
+    "msg": "Register successful."
 }
 ```
 
@@ -213,36 +231,9 @@ String | name | ✔
 ```
 {
     "status": "error",
-    "msg": msg
+    "msg": *msg[Array]*
 }
 ```
-
-
->`/service/login`
-
-類型 | 參數名稱 | 必須 
---- | --- | --- |
-String ︎|︎ email | ✔ 
-String | password | ✔
-
->success
-
-```
-{
-    "status": "success",
-    "token": token
-}
-```
-
->error
-
-```
-{
-    "status": "error",
-    "msg": msg
-}
-```
-
 
 >`/service/forgot_password`
 
@@ -353,6 +344,7 @@ URL | 頁面 | 其他
 ### <a name="Comment"></a>Comment 留言
 URL | 頁面 | 其他 
 --- | --- | --- |
+/comment/{}/{} | |
 
 ```
  TODO
