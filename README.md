@@ -1,11 +1,14 @@
 # ComicApi
 暫定未命名的漫畫 API 參考文件
 
+# Prefix
+>api/
+
 ## 首頁
 
 URL | 頁面 | 其他 
 --- | --- | --- |
-/api | 首頁 | 
+ | 首頁 | 
 [auth](#Auth) | JWT 認證 |
 [comic](#Comic) | 漫畫列表 | 
 [tag](#Tag) | 標籤列 | 
@@ -19,9 +22,9 @@ URL | 頁面 | 其他
 ### <a name="Auth"></a> JWT 認證
 URL | 頁面 | 其他 
 --- | --- | --- |
-/api/auth | JWT | POST
+/auth | JWT | POST
 
->`/api/auth`
+>`/auth`
 
 類型 | 參數名稱 | 必須
 --- | --- | --- |
@@ -57,14 +60,14 @@ String | password | ✔
 
 URL | 頁面 | 其他 
 --- | --- | --- |
-/api/comic/{Page} | 所有漫畫 | 
-/api/comic/{ComicName} | 單一漫畫列表 |
-/api/comic/{ComicName}/{ArticleID}/{Page} | 單一章節頁面 | 
-/api/comic/tag/{TagName}/{page} | 顯示某 Tag 所有漫畫 |
-/api/comic/type/{TypeName}/{page} | 顯示某 Tyoe 所有漫畫 |
+/comic/{Page} | 所有漫畫 | 
+/comic/{ComicName} | 單一漫畫列表 |
+/comic/{ComicName}/{ArticleID}/{Page} | 單一章節頁面 | 
+/comic/tag/{TagName}/{page} | 顯示某 Tag 所有漫畫 |
+/comic/type/{TypeName}/{page} | 顯示某 Tyoe 所有漫畫 |
 
 #### JSON Response
->`/api/comic/{Page}`
+>`/comic/{Page}`
 
 ```
 {
@@ -86,7 +89,7 @@ URL | 頁面 | 其他
     ]
 }
 ```
->`/api/comic/{ComicName}`
+>`/comic/{ComicName}`
 
 ```
 {
@@ -113,7 +116,7 @@ URL | 頁面 | 其他
     ]
 }
 ```
->`/api/comic/{ComicName}/{ArticleID}/{Page}`
+>`/comic/{ComicName}/{ArticleID}/{Page}`
 
 ```
 {
@@ -124,13 +127,13 @@ URL | 頁面 | 其他
     "is_end": is_end[bool]
 }
 ```
->`/api/comic/tag/{TagName}/{page}`
+>`/comic/tag/{TagName}/{page}`
 
 ```
 TODO
 ```
 
->`/api/comic/type/{TypeName}/{page}`
+>`/comic/type/{TypeName}/{page}`
 
 ```
 TODO
@@ -143,7 +146,7 @@ URL | 頁面 | 其他
 /tag/{TagName}/{Page} | Tag 相關漫畫 | 
 
 #### JSON Response
->`/api/tag`
+>`/tag`
 
 ```
 {
@@ -157,7 +160,7 @@ URL | 頁面 | 其他
     ]
 }
 ```
->`/api/tag/{TagName}/{Page}`
+>`/tag/{TagName}/{Page}`
 
 ```
 {
@@ -186,10 +189,10 @@ URL | 頁面 | 其他
 ### <a name="Type"></a>Type 分類
 URL | 頁面 | 其他 
 --- | --- | --- |
-/api/tag/ | Type分類表 |
+/tag/ | Type分類表 |
 
 #### JSON Response
-> `/api/tag`
+> `/tag`
 
 ```
 {
@@ -207,11 +210,11 @@ URL | 頁面 | 其他
 ### <a name="Search"></a>Search 搜尋
 URL | 頁面 | 其他 
 --- | --- | --- |
-/api/search | 搜尋頁面 | 
-/api/search/{SearchName}/{Page} | 顯示搜尋結果 |
+/search | 搜尋頁面 | 
+/search/{SearchName}/{Page} | 顯示搜尋結果 |
 
 #### JSON Response
-> `/api/search`
+> `/search`
 
 `主頁提供熱度推薦，共10筆`
 
@@ -232,7 +235,7 @@ URL | 頁面 | 其他
     ]
 }
 ```
-> `/api/search/{SearchName}/{Page}`
+> `/search/{SearchName}/{Page}`
 
 ```
     同主頁資料 (每頁15筆)
@@ -240,11 +243,11 @@ URL | 頁面 | 其他
 ### <a name="Service"></a>Service 服務
 URL | 頁面 | 其他 
 --- | --- | --- |
-/api/service/register | 註冊帳號 | POST
+/service/register | 註冊帳號 | POST
 /service/forgot_password | 忘記密碼 | POST
 
 #### JSON Response
->`/api/service/register`
+>`/service/register`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
@@ -271,7 +274,7 @@ String | name | ✔
 }
 ```
 
->`/api/service/forgot_password`
+>`/service/forgot_password`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
@@ -302,11 +305,11 @@ String | password | ✔
 ### <a name="Publish"></a>Publish 發佈漫畫
 URL | 頁面 | 其他 
 --- | --- | --- |
-/api/publish/ | 發佈 | POST
-/api/publish/{ComicName}/ | 發佈新章節 | POST
+/publish/ | 發佈 | POST
+/publish/chapter/{ComicName}/ | 發佈新章節 | POST
 
 #### JSON Response
->`/api/publish`
+>`/publish`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
@@ -323,7 +326,7 @@ String | comicSummary | ✔ (最少 30 字)
 }
 ```
 
->`/api/publish/{ComicName}/`
+>`/publish/chapter/{ComicName}/`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
@@ -348,7 +351,7 @@ URL | 頁面 | 其他
 /user/avatar/edit | 修改頭貼 | POST
 
 #### JSON Response
->`/api/user`
+>`/user`
 
 ```
 {
@@ -363,7 +366,7 @@ URL | 頁面 | 其他
 }
 ```
 
->`/api/user/psword/reset`
+>`/user/psword/reset`
 
 ```
 {
@@ -371,7 +374,7 @@ URL | 頁面 | 其他
     "msg": msg
 }
 ```
->`/api/user/avatar/edit`
+>`/user/avatar/edit`
 
 ```
 {
@@ -381,17 +384,17 @@ URL | 頁面 | 其他
 ```
 
 ### <a name="Comment"></a>Comment 留言
-`可以考慮使用臉留言板 (有好有壞) `
+`可以考慮使用臉書留言板 (有好有壞) `
 URL | 頁面 | 其他 
 --- | --- | --- |
-/api/comment/{ComicId} | 顯示某漫所有留言 |
-/api/comment/{ComicId}/{Chapter} | 顯示某漫章節留言  |
-/api/comment/{ComicId}/{Chapter}/add | 添加某漫章節留言 |
-/api/comment/{CommentId}/edit | 修改某漫留言  |
-/api/comment/{CommentId}/delete | 刪除某漫留言 |
+/comment/{ComicId} | 顯示某漫所有留言 |
+/comment/{ComicId}/{Chapter} | 顯示某漫章節留言  |
+/comment/{ComicId}/{Chapter}/add | 添加某漫章節留言 |
+/comment/{CommentId}/edit | 修改某漫留言  | PUT
+/comment/{CommentId}/delete | 刪除某漫留言 | DELETE
 
 #### JSON Response
->`/api/comment/{ComicId}`
+>`/comment/{ComicId}`
 
 ```
 {
