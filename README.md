@@ -60,7 +60,8 @@ URL | 頁面 | 其他
 /api/comic/{Page} | 所有漫畫 | 
 /api/comic/{ComicName} | 單一漫畫列表 |
 /api/comic/{ComicName}/{ArticleID}/{Page} | 單一章節頁面 | 
-
+/api/comic/tag/{TagName}/{page} | 顯示某 Tag 所有漫畫 |
+/api/comic/type/{TypeName}/{page} | 顯示某 Tyoe 所有漫畫 |
 
 #### JSON Response
 >`/api/comic/{Page}`
@@ -123,6 +124,17 @@ URL | 頁面 | 其他
     "is_end": is_end[bool]
 }
 ```
+>`/api/comic/tag/{TagName}/{page}`
+
+```
+TODO
+```
+
+>`/api/comic/type/{TypeName}/{page}`
+
+```
+TODO
+```
 
 ### <a name="Tag"></a>Tag 標籤列表
 URL | 頁面 | 其他 
@@ -130,6 +142,7 @@ URL | 頁面 | 其他
 /tag | Tag 列表 | 
 /tag/{TagName}/{Page} | Tag 相關漫畫 | 
 
+#### JSON Response
 >`/api/tag`
 
 ```
@@ -174,8 +187,22 @@ URL | 頁面 | 其他
 URL | 頁面 | 其他 
 --- | --- | --- |
 /api/tag/ | Type分類表 |
-/api/tag/{Type}/{Page} | 分類相關漫畫 |
 
+#### JSON Response
+> `/api/tag`
+
+```
+{
+    "status": Status,
+    "tags": [
+        {
+            "id": id,
+            "name": name
+        },
+        ...
+    ]
+}
+```
 
 ### <a name="Search"></a>Search 搜尋
 URL | 頁面 | 其他 
@@ -183,6 +210,7 @@ URL | 頁面 | 其他
 /api/search | 搜尋頁面 | 
 /api/search/{SearchName}/{Page} | 顯示搜尋結果 |
 
+#### JSON Response
 > `/api/search`
 
 `主頁提供熱度推薦，共10筆`
@@ -215,6 +243,7 @@ URL | 頁面 | 其他
 /api/service/register | 註冊帳號 | POST
 /service/forgot_password | 忘記密碼 | POST
 
+#### JSON Response
 >`/api/service/register`
 
 類型 | 參數名稱 | 必須 
@@ -276,6 +305,7 @@ URL | 頁面 | 其他
 /api/publish/ | 發佈 | POST
 /api/publish/{ComicName}/ | 發佈新章節 | POST
 
+#### JSON Response
 >`/api/publish`
 
 類型 | 參數名稱 | 必須 
@@ -317,6 +347,7 @@ URL | 頁面 | 其他
 /user/password/reset | 修改密碼 | PUT
 /user/avatar/edit | 修改頭貼 | POST
 
+#### JSON Response
 >`/api/user`
 
 ```
@@ -359,10 +390,12 @@ URL | 頁面 | 其他
 /api/comment/{CommentId}/edit | 修改某漫留言  |
 /api/comment/{CommentId}/delete | 刪除某漫留言 |
 
+#### JSON Response
 >`/api/comment/{ComicId}`
 
 ```
 {
+    "status": Status,
     comics: [
         "userName": user_name,
         "userId": user_id,
