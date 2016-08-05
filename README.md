@@ -5,7 +5,7 @@
 
 URL | 頁面 | 其他 
 --- | --- | --- |
-/ | 首頁 | 
+/api | 首頁 | 
 [auth](#Auth) | JWT 認證 |
 [comic](#Comic) | 漫畫列表 | 
 [tag](#Tag) | 標籤列 | 
@@ -19,9 +19,9 @@ URL | 頁面 | 其他
 ### <a name="Auth"></a> JWT 認證
 URL | 頁面 | 其他 
 --- | --- | --- |
-/auth | JWT | POST
+/api/auth | JWT | POST
 
->`/auth`
+>`/api/auth`
 
 類型 | 參數名稱 | 必須
 --- | --- | --- |
@@ -57,13 +57,13 @@ String | password | ✔
 
 URL | 頁面 | 其他 
 --- | --- | --- |
-/{Page} | 所有漫畫 | 
-/comic/{ComicName} | 單一漫畫列表 |
-/comic/{ComicName}/{ArticleID}/{Page} | 單一章節頁面 | 
+/api/comic/{Page} | 所有漫畫 | 
+/api/comic/{ComicName} | 單一漫畫列表 |
+/api/comic/{ComicName}/{ArticleID}/{Page} | 單一章節頁面 | 
 
 
 #### JSON Response
->`/{Page}`
+>`/api/comic/{Page}`
 
 ```
 {
@@ -85,7 +85,7 @@ URL | 頁面 | 其他
     ]
 }
 ```
->`/comic/{ComicName}`
+>`/api/comic/{ComicName}`
 
 ```
 {
@@ -112,7 +112,7 @@ URL | 頁面 | 其他
     ]
 }
 ```
->`/comic/{ComicName}/{ArticleID}/{Page}`
+>`/api/comic/{ComicName}/{ArticleID}/{Page}`
 
 ```
 {
@@ -130,7 +130,7 @@ URL | 頁面 | 其他
 /tag | Tag 列表 | 
 /tag/{TagName}/{Page} | Tag 相關漫畫 | 
 
->`/tag`
+>`/api/tag`
 
 ```
 {
@@ -144,7 +144,7 @@ URL | 頁面 | 其他
     ]
 }
 ```
->`/tag/{TagName}/{Page}`
+>`/api/tag/{TagName}/{Page}`
 
 ```
 {
@@ -173,17 +173,17 @@ URL | 頁面 | 其他
 ### <a name="Type"></a>Type 分類
 URL | 頁面 | 其他 
 --- | --- | --- |
-/tag/ | Type分類表 |
-/tag/{Type}/{Page} | 分類相關漫畫 |
+/api/tag/ | Type分類表 |
+/api/tag/{Type}/{Page} | 分類相關漫畫 |
 
 
 ### <a name="Search"></a>Search 搜尋
 URL | 頁面 | 其他 
 --- | --- | --- |
-/search | 搜尋頁面 | 
-/search/{SearchName}/{Page} | 顯示搜尋結果 |
+/api/search | 搜尋頁面 | 
+/api/search/{SearchName}/{Page} | 顯示搜尋結果 |
 
-> `/search`
+> `/api/search`
 
 `主頁提供熱度推薦，共10筆`
 
@@ -204,7 +204,7 @@ URL | 頁面 | 其他
     ]
 }
 ```
-> `/search/{SearchName}/{Page}`
+> `/api/search/{SearchName}/{Page}`
 
 ```
     同主頁資料 (每頁15筆)
@@ -212,10 +212,10 @@ URL | 頁面 | 其他
 ### <a name="Service"></a>Service 服務
 URL | 頁面 | 其他 
 --- | --- | --- |
-/service/register | 註冊帳號 | POST
+/api/service/register | 註冊帳號 | POST
 /service/forgot_password | 忘記密碼 | POST
 
->`/service/register`
+>`/api/service/register`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
@@ -242,7 +242,7 @@ String | name | ✔
 }
 ```
 
->`/service/forgot_password`
+>`/api/service/forgot_password`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
@@ -273,10 +273,10 @@ String | password | ✔
 ### <a name="Publish"></a>Publish 發佈漫畫
 URL | 頁面 | 其他 
 --- | --- | --- |
-/publish/ | 發佈 | POST
-/publish/{ComicName}/ | 發佈新章節 | POST
+/api/publish/ | 發佈 | POST
+/api/publish/{ComicName}/ | 發佈新章節 | POST
 
->`/publish`
+>`/api/publish`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
@@ -293,7 +293,7 @@ String | comicSummary | ✔ (最少 30 字)
 }
 ```
 
->`/publish/{ComicName}/`
+>`/api/publish/{ComicName}/`
 
 類型 | 參數名稱 | 必須 
 --- | --- | --- |
@@ -317,7 +317,7 @@ URL | 頁面 | 其他
 /user/password/reset | 修改密碼 | PUT
 /user/avatar/edit | 修改頭貼 | POST
 
->`/user`
+>`/api/user`
 
 ```
 {
@@ -332,7 +332,7 @@ URL | 頁面 | 其他
 }
 ```
 
->`/user/psword/reset`
+>`/api/user/psword/reset`
 
 ```
 {
@@ -340,7 +340,7 @@ URL | 頁面 | 其他
     "msg": msg
 }
 ```
->`/user/avatar/edit`
+>`/api/user/avatar/edit`
 
 ```
 {
@@ -353,13 +353,13 @@ URL | 頁面 | 其他
 `可以考慮使用臉留言板 (有好有壞) `
 URL | 頁面 | 其他 
 --- | --- | --- |
-/comment/{ComicId} | 顯示某漫所有留言 |
-/comment/{ComicId}/{Chapter} | 顯示某漫章節留言  |
-/comment/{ComicId}/{Chapter}/add | 添加某漫章節留言 |
-/comment/{CommentId}/edit | 修改某漫留言  |
-/comment/{CommentId}/delete | 刪除某漫留言 |
+/api/comment/{ComicId} | 顯示某漫所有留言 |
+/api/comment/{ComicId}/{Chapter} | 顯示某漫章節留言  |
+/api/comment/{ComicId}/{Chapter}/add | 添加某漫章節留言 |
+/api/comment/{CommentId}/edit | 修改某漫留言  |
+/api/comment/{CommentId}/delete | 刪除某漫留言 |
 
->`/comment/{ComicId}`
+>`/api/comment/{ComicId}`
 
 ```
 {
